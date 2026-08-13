@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jisu Jennifer Kim — Marketing Scholar</title>
+<meta name="description" content="Jisu Jennifer Kim, Assistant Professor of Marketing at Auburn University. Research on customer loyalty, relationship dynamics, and digital marketing.">
+<style>
+  :root{
+    --ink:#1c1f24;
+    --muted:#5a6270;
+    --faint:#8a929e;
+    --line:#e4e6ea;
+    --bg:#fbfaf8;
+    --card:#ffffff;
+    --accent:#8a2a2a;         /* deep academic burgundy */
+    --accent-soft:#f6ecec;
+    --maxw:820px;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --ink:#e7e8ea; --muted:#a3abb8; --faint:#79818e;
+      --line:#2c313a; --bg:#14161a; --card:#1b1e24;
+      --accent:#e28b8b; --accent-soft:#2a1e1e;
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:var(--sans); font-size:17px; line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent); text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* ---- Nav ---- */
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:saturate(1.2) blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw); margin:0 auto; padding:14px 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .nav-name{font-family:var(--serif); font-weight:600; font-size:18px; letter-spacing:.2px}
+  .nav-links{display:flex; gap:22px; flex-wrap:wrap}
+  .nav-links a{color:var(--muted); font-size:14.5px; letter-spacing:.3px}
+  .nav-links a:hover{color:var(--accent); text-decoration:none}
+
+  /* ---- Layout ---- */
+  main{max-width:var(--maxw); margin:0 auto; padding:0 24px}
+  section{padding:56px 0; border-top:1px solid var(--line)}
+  section:first-of-type{border-top:none}
+  h2{
+    font-family:var(--serif); font-weight:600; font-size:15px;
+    text-transform:uppercase; letter-spacing:2px; color:var(--accent);
+    margin:0 0 28px;
+  }
+
+  /* ---- Header ---- */
+  header{padding:72px 0 48px; display:flex; gap:40px; align-items:center}
+  .header-text{flex:1; min-width:0}
+  .portrait{
+    flex:none; width:190px; height:190px; border-radius:50%;
+    object-fit:cover; object-position:center 20%;
+    box-shadow:0 4px 20px rgba(0,0,0,.14); border:3px solid var(--card);
+  }
+  .name{
+    font-family:var(--serif); font-weight:600; font-size:44px; line-height:1.1;
+    margin:0 0 10px; letter-spacing:.3px;
+  }
+  .role{font-size:19px; color:var(--ink); margin:0 0 4px}
+  .affil{color:var(--muted); margin:0 0 22px}
+  .contact-row{display:flex; flex-wrap:wrap; gap:10px 12px; align-items:center}
+  .btn{
+    display:inline-flex; align-items:center; gap:7px;
+    padding:8px 15px; border:1px solid var(--line); border-radius:999px;
+    background:var(--card); color:var(--ink); font-size:14px; line-height:1;
+  }
+  .btn:hover{border-color:var(--accent); color:var(--accent); text-decoration:none}
+  .btn.primary{background:var(--accent); border-color:var(--accent); color:#fff}
+  .btn.primary:hover{color:#fff; opacity:.92}
+
+  /* ---- About ---- */
+  .lead p{margin:0 0 16px; color:var(--ink)}
+  .interests{
+    margin-top:8px; display:flex; flex-wrap:wrap; gap:8px;
+  }
+  .tag{
+    font-size:13.5px; color:var(--muted); background:var(--accent-soft);
+    border:1px solid var(--line); padding:5px 12px; border-radius:6px;
+  }
+
+  /* ---- Publications ---- */
+  .pub{padding:20px 0; border-top:1px solid var(--line)}
+  .pub:first-child{border-top:none; padding-top:0}
+  .pub-authors{color:var(--muted); font-size:15.5px}
+  .pub-title{font-family:var(--serif); font-size:18.5px; line-height:1.4; margin:3px 0 4px}
+  .pub-venue{color:var(--ink)}
+  .pub-venue em{color:var(--muted)}
+  .pub-year{color:var(--faint)}
+  .honors{list-style:none; margin:9px 0 0; padding:0}
+  .honors li{
+    position:relative; padding-left:20px; color:var(--muted);
+    font-size:14.5px; margin:4px 0;
+  }
+  .honors li::before{
+    content:"★"; position:absolute; left:0; top:0; color:var(--accent); font-size:12px;
+  }
+  .me{color:var(--ink); font-weight:600}
+
+  /* ---- Simple listed items (working papers, progress) ---- */
+  .list{margin:0; padding:0; list-style:none}
+  .list li{padding:14px 0; border-top:1px solid var(--line)}
+  .list li:first-child{border-top:none}
+  .wp-title{font-family:var(--serif); font-size:17px; line-height:1.4}
+  .wp-meta{color:var(--muted); font-size:14.5px; margin-top:2px}
+  .status{
+    display:inline-block; font-size:12px; letter-spacing:.4px; text-transform:uppercase;
+    color:var(--accent); border:1px solid var(--line); background:var(--accent-soft);
+    padding:2px 9px; border-radius:5px; margin-top:6px;
+  }
+
+  /* ---- Teaching ---- */
+  .course{padding:16px 0; border-top:1px solid var(--line)}
+  .course:first-child{border-top:none}
+  .course-name{font-family:var(--serif); font-size:17.5px}
+  .course-meta{color:var(--muted); font-size:14.5px; margin-top:3px}
+  .evals{color:var(--faint); font-size:13.5px; margin-top:4px}
+
+  /* ---- Honors grid ---- */
+  .honor-list{margin:0; padding:0; list-style:none}
+  .honor-list li{
+    padding:10px 0; border-top:1px solid var(--line);
+    display:flex; gap:14px; align-items:baseline;
+  }
+  .honor-list li:first-child{border-top:none}
+  .honor-yr{color:var(--faint); font-variant-numeric:tabular-nums; min-width:82px; font-size:14.5px}
+  .honor-txt{color:var(--ink); font-size:15.5px}
+
+  /* ---- Contact / references ---- */
+  .refs{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:22px; margin-top:8px}
+  .ref{border:1px solid var(--line); border-radius:10px; padding:18px; background:var(--card)}
+  .ref-name{font-family:var(--serif); font-size:17px; font-weight:600}
+  .ref-line{color:var(--muted); font-size:14px; margin-top:2px}
+  .ref-line.top{margin-top:8px}
+
+  footer{
+    max-width:var(--maxw); margin:0 auto; padding:40px 24px 64px;
+    color:var(--faint); font-size:13.5px; border-top:1px solid var(--line);
+  }
+
+  @media (max-width:640px){
+    body{font-size:16px}
+    .name{font-size:34px}
+    .nav-name{display:none}
+    header{padding:48px 0 36px; flex-direction:column-reverse; gap:24px; align-items:flex-start}
+    .portrait{width:130px; height:130px}
+    section{padding:44px 0}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-name">Jisu Jennifer Kim</span>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#honors">Honors</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <header>
+    <div class="header-text">
+      <h1 class="name">Jisu Jennifer Kim</h1>
+      <p class="role">Assistant Professor of Marketing</p>
+      <p class="affil">Raymond J. Harbert College of Business, Auburn University</p>
+      <div class="contact-row">
+        <a class="btn primary" href="mailto:jisu.kim@auburn.edu">✉ jisu.kim@auburn.edu</a>
+        <a class="btn" href="Jisu_Kim_CV.docx">↓ Curriculum Vitae</a>
+        <a class="btn" href="https://scholar.google.com/citations?user=mzOSWS8AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a class="btn" href="https://www.linkedin.com/in/jisu-jennifer-kim" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <img class="portrait" src="headshot.jpg" alt="Jisu Jennifer Kim"
+         onerror="this.style.display='none'">
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <div class="lead">
+      <p>Jisu J. Kim is an Assistant Professor of Marketing at Auburn University. Her research
+        examines how firms build and sustain customer relationships as the technologies that
+        mediate them evolve, spanning loyalty programs, influencer and platform strategies, and
+        emerging technologies such as generative AI. Combining large-scale field data with
+        experimental and qualitative methods, she studies how these shifts reshape relationships
+        between buyers and sellers.</p>
+      <p>Her work appears in leading journals, including the
+        <em>Journal of the Academy of Marketing Science</em> and the <em>Journal of Retailing</em>,
+        and has earned the Davidson Awards (2019, 2021), recognition as a JAMS/Sheth Foundation
+        Best Paper Finalist (2021), and the AMS Review/Sheth Foundation Doctoral Competition Award
+        (2017). She serves on the Editorial Review Board of JAMS and as an ad hoc reviewer for
+        several leading journals.</p>
+      <p>Kim developed and currently teaches Customer Relationship Management (CRM) and has taught
+        marketing at the undergraduate, graduate, and executive levels. Beyond academia, she has
+        provided consulting services to organizations including U.S. federal agencies, Fortune
+        Global 500 companies, and major Korean firms. She holds a Ph.D. in Marketing from the
+        University of Washington, an M.S. in Management Engineering from KAIST, and a B.S. in
+        Information Systems from Carnegie Mellon University.</p>
+    </div>
+    <div class="interests">
+      <span class="tag">Customer loyalty</span>
+      <span class="tag">Relationship dynamics</span>
+      <span class="tag">Digital marketing</span>
+      <span class="tag">Technology &amp; AI</span>
+      <span class="tag">Sustainability</span>
+    </div>
+  </section>
+
+  <section id="research">
+    <h2>Published Research</h2>
+
+    <div class="pub">
+      <div class="pub-authors">Kim, <span class="me">Jisu J.</span>, Mark R. Gleim, Stephanie J. Lawson, and Heath McCullough <span class="pub-year">(2026)</span></div>
+      <div class="pub-title">Closing the Gender Wage Gap: Strategies for Mitigating the Effect of Gender on Pricing Decisions</div>
+      <div class="pub-venue"><em>Journal of Marketing Theory and Practice</em>, 34 (2), 373–385.</div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-authors">Hu, Bingyan, Omar S. Itani, <span class="me">Jisu J. Kim</span>, V. Myles Landers, and Xinwei Liu <span class="pub-year">(2025)</span></div>
+      <div class="pub-title">Mapping Marketing's Contribution to Under-Researched Sustainable Development Goals (SDGs): A Well-Being Centric Approach</div>
+      <div class="pub-venue"><em>Journal of Marketing Theory and Practice</em>, 1–24.</div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-authors">Steinhoff, Lena, <span class="me">Jisu J. Kim</span>, Vamsi K. Kanuri, and Robert W. Palmatier <span class="pub-year">(2025)</span></div>
+      <div class="pub-title">Unintended Consequences of Selling B2B Digital Subscription Add-Ons for Customer Onboarding</div>
+      <div class="pub-venue"><em>Journal of the Academy of Marketing Science</em>, 53, 1447–1481.</div>
+      <ul class="honors">
+        <li>JAMS Top 5 Most Downloaded Paper (2025); 12,000+ article reads</li>
+      </ul>
+    </div>
+
+    <div class="pub">
+      <div class="pub-authors"><span class="me">Kim, Jisu J.</span>, Lena Steinhoff, and Robert W. Palmatier <span class="pub-year">(2021)</span></div>
+      <div class="pub-title">An Emerging Theory of Loyalty Program Dynamics</div>
+      <div class="pub-venue"><em>Journal of the Academy of Marketing Science</em>, 49, 71–95.</div>
+      <ul class="honors">
+        <li>Finalist, 2021 Sheth Foundation JAMS Best Paper Award (Volume 49)</li>
+        <li>Winner, AMS Review/Sheth Foundation Doctoral Competition (2017)</li>
+      </ul>
+    </div>
+
+    <div class="pub">
+      <div class="pub-authors">Martin, Kelly, <span class="me">Jisu J. Kim</span>, Robert W. Palmatier, Lena Steinhoff, Yonggui Wang, and Scott Weaven <span class="pub-year">(2020)</span></div>
+      <div class="pub-title">Data Privacy in Retail</div>
+      <div class="pub-venue"><em>Journal of Retailing</em>, 96 (4), 474–489.</div>
+      <ul class="honors">
+        <li>Winner, 2021 Davidson Award — best paper in the <em>Journal of Retailing</em> (2020)</li>
+        <li>Referenced in <em>The Economist</em>, Special Report on the "Retail Renaissance," March 13, 2021</li>
+      </ul>
+    </div>
+
+    <div class="pub">
+      <div class="pub-authors">Lee, Ju-Yeon, Eric Fang, <span class="me">Jisu J. Kim</span>, Xiaoling Li, and Robert W. Palmatier <span class="pub-year">(2018)</span></div>
+      <div class="pub-title">The Effect of Online Shopping Platform Channel Strategies on Search, Display, and Membership Revenues</div>
+      <div class="pub-venue"><em>Journal of Retailing</em>, 94 (3), 247–264.</div>
+      <ul class="honors">
+        <li>Winner, 2019 Davidson Award — best paper in the <em>Journal of Retailing</em> (2018)</li>
+        <li>Lead article, September 2018 issue</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="working-papers">
+    <h2>Working Papers</h2>
+    <ul class="list">
+      <li>
+        <div class="wp-title">Dynamic Effects of Loyalty Program Enhancement Strategies</div>
+        <div class="wp-meta">with Ju-Yeon Lee, Stephen Samaha, and Robert W. Palmatier — from the dissertation</div>
+        <span class="status">Revising · 4th round, JAMS</span>
+      </li>
+      <li>
+        <div class="wp-title">Leveraging Influencer Networks for Successful Event Marketing</div>
+        <div class="wp-meta">with Yiwei Li and Robert W. Palmatier</div>
+        <span class="status">Revising · R&amp;R, Journal of Marketing</span>
+      </li>
+      <li>
+        <div class="wp-title">The Diagnostic Role of Sustainability Value Signaling in Innovation Perceptions and Brand Loyalty</div>
+        <div class="wp-meta">with Sungjun (Steven) Park, Chica-Chi (Maggie) Lee, Chul Sung Lee, and Heejung Lee</div>
+        <span class="status">Revising · R&amp;R, JAMS</span>
+      </li>
+      <li>
+        <div class="wp-title">Digital Co-Consumption</div>
+        <div class="wp-meta">with Vamsi K. Kanuri and Ajay Kohli</div>
+        <span class="status">Finalizing · targeting Journal of Marketing</span>
+      </li>
+      <li>
+        <div class="wp-title">Asymmetric Effects of Trust and Distrust: When and to What Extent?</div>
+        <div class="wp-meta">with Andreas B. Eisingerich</div>
+        <span class="status">Finalized · targeting Journal of Consumer Psychology</span>
+      </li>
+      <li>
+        <div class="wp-title">Tripartite Customer Loyalty Mechanism Discovery: Interactive Live Streaming Context</div>
+        <div class="wp-meta">with Seungwoo Choi, Colin Gabler, and Young-Gul Kim</div>
+        <span class="status">Repositioning · targeting Journal of Business Research</span>
+      </li>
+      <li>
+        <div class="wp-title">The Cross-Country Effect of Functional vs. Emotion Information on Brand Loyalty</div>
+        <div class="wp-meta">with Sumin Han</div>
+        <span class="status">Analyses complete · targeting JIBS</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="progress">
+    <h2>Research in Progress</h2>
+    <ul class="list">
+      <li>
+        <div class="wp-title">Loyalty to Whom? Creator Mobility Events and Loyalty Target Tensions in the Creator Economy</div>
+        <div class="wp-meta">with Robert W. Palmatier — analyzing data, targeting Journal of Marketing</div>
+      </li>
+      <li>
+        <div class="wp-title">Loyalty's Breaking Point: How Relational Failure Taxonomies Predict Relationship Dissolution</div>
+        <div class="wp-meta">with Lena Steinhoff, Carlos Bauer, and Stephen Samaha — analyzing data</div>
+      </li>
+      <li>
+        <div class="wp-title">Between Platform and Customer: A Theory of Intermediary-Mediated Loyalty in Multi-Sided Markets</div>
+        <div class="wp-meta">with Colin Gabler — literature review in progress</div>
+      </li>
+      <li>
+        <div class="wp-title">Customer Loyalty and Customer Data Privacy Tensions</div>
+        <div class="wp-meta">with Robert W. Palmatier — collecting experimental data</div>
+      </li>
+      <li>
+        <div class="wp-title">When and Where Loyalty Programs Pay Off: A Cross-National Meta-Analysis</div>
+        <div class="wp-meta">with Robert W. Palmatier — literature review in progress</div>
+      </li>
+      <li>
+        <div class="wp-title">Relational Signals Without Relational Capacity: AI Personalization and the Amplification of Service Failure</div>
+        <div class="wp-meta">drafting proposal for proprietary data and field experiment</div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="teaching">
+    <h2>Teaching</h2>
+    <p style="color:var(--muted); margin:0 0 22px">
+      Managerially focused courses at the undergraduate and graduate levels — Marketing Strategy,
+      Customer Analytics, Customer Relationship Management, AI in Marketing, Digital Marketing,
+      and Retail Management.</p>
+
+    <div class="course">
+      <div class="course-name">Customer Relationship Management (MKTG 4450)</div>
+      <div class="course-meta">Instructor of Record — Auburn University, Spring 2023 – present</div>
+      <div class="evals">Recent evaluations up to 5.7&#8202;/&#8202;6.0 · Full course development and Salesforce training implementation</div>
+    </div>
+    <div class="course">
+      <div class="course-name">Doctoral Seminar, Marketing Strategy II</div>
+      <div class="course-meta">Guest Lecturer — Iowa State University, Spring 2026</div>
+      <div class="evals">Guest lecture on conceptual papers for a marketing strategy doctoral seminar</div>
+    </div>
+    <div class="course">
+      <div class="course-name">Executive MBA — Marketing Strategy</div>
+      <div class="course-meta">Teaching Assistant with teaching component — University of Washington, 2017–2020</div>
+      <div class="evals">Teaching evaluations: 4.5&#8202;/&#8202;5.0</div>
+    </div>
+  </section>
+
+  <section id="honors">
+    <h2>Selected Honors</h2>
+    <ul class="honor-list">
+      <li><span class="honor-yr">2026</span><span class="honor-txt">Fellow, AMA-Sheth Foundation Early Career Consortium, Madrid, Spain</span></li>
+      <li><span class="honor-yr">2023–26</span><span class="honor-txt">Marketing Strategy Consortium Fellow</span></li>
+      <li><span class="honor-yr">2021</span><span class="honor-txt">Finalist, JAMS / Sheth Foundation Best Paper Award</span></li>
+      <li><span class="honor-yr">2021</span><span class="honor-txt">Davidson Award — best paper in the <em>Journal of Retailing</em> (2020)</span></li>
+      <li><span class="honor-yr">2021</span><span class="honor-txt">AMA Retail &amp; Pricing SIG Doctoral Student Award</span></li>
+      <li><span class="honor-yr">2019</span><span class="honor-txt">Davidson Award — best paper in the <em>Journal of Retailing</em> (2018)</span></li>
+      <li><span class="honor-yr">2017</span><span class="honor-txt">Winner, AMS Review / Sheth Foundation Doctoral Competition</span></li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p style="margin:0 0 6px">Raymond J. Harbert College of Business, Auburn University</p>
+    <p style="color:var(--muted); margin:0 0 6px">405 W Magnolia Ave, Auburn, AL 36849</p>
+    <p style="margin:0 0 26px"><a href="mailto:jisu.kim@auburn.edu">jisu.kim@auburn.edu</a> · +1 (412) 715-5398</p>
+
+    <h2 style="font-size:13px">References</h2>
+    <div class="refs">
+      <div class="ref">
+        <div class="ref-name">Robert W. Palmatier</div>
+        <div class="ref-line top">John C. Narver Endowed Professor</div>
+        <div class="ref-line">Foster School of Business, University of Washington</div>
+        <div class="ref-line"><a href="mailto:palmatrw@uw.edu">palmatrw@uw.edu</a></div>
+      </div>
+      <div class="ref">
+        <div class="ref-name">Vamsi K. Kanuri</div>
+        <div class="ref-line top">Viola D. Hank Associate Professor of Marketing</div>
+        <div class="ref-line">Mendoza College of Business, University of Notre Dame</div>
+        <div class="ref-line"><a href="mailto:vkanuri@nd.edu">vkanuri@nd.edu</a></div>
+      </div>
+      <div class="ref">
+        <div class="ref-name">Ju-Yeon Lee</div>
+        <div class="ref-line top">John and Connie Stafford Professor in Business</div>
+        <div class="ref-line">Ivy College of Business, Iowa State University</div>
+        <div class="ref-line"><a href="mailto:leejy@iastate.edu">leejy@iastate.edu</a></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © <span id="yr">2026</span> Jisu Jennifer Kim · Auburn University
+</footer>
+
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
